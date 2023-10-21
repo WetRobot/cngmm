@@ -97,7 +97,7 @@ namespace ngram {
             const std::string& text
         ) {
             const std::size_t n_ngrams = text.size() - n + 1;
-            for (int i = 0; i < n_ngrams; i++) {
+            for (std::size_t i = 0; i < n_ngrams; i++) {
                 // e.g. n = 3, text = "howdy", i = 1:
                 // lhs = "ow", rhs = "d"
                 const std::string& lhs = text.substr(i, n - 1);
@@ -106,7 +106,7 @@ namespace ngram {
             }
         }
         void update(
-            const std::vector<std::string> texts
+            const std::vector<std::string>& texts
         ) {
             for (const auto& text : texts) {
                 update(text);
@@ -177,7 +177,7 @@ namespace ngram {
         ) const {
             out = 0.0;
             const std::size_t n_ngrams = text.size() - n + 1;
-            for (int i = 0; i < n_ngrams; i++) {
+            for (std::size_t i = 0; i < n_ngrams; i++) {
                 // e.g. n = 3, text = "howdy", i = 1:
                 // lhs = "ow", rhs = "d"
                 const std::string& lhs = text.substr(i, n - 1);
@@ -203,7 +203,7 @@ namespace ngram {
         ) const {
             omp_set_num_threads(n_threads);
             #pragma omp parallel for
-            for (int i = 0; i < out.size(); i++) {
+            for (std::size_t i = 0; i < out.size(); i++) {
                 const std::string& text_i = texts[i];
                 double& out_i = out[i];
                 lpmf(text_i, out_i);
