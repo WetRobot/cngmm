@@ -202,8 +202,9 @@ namespace ngram {
             int n_threads = 1
         ) const {
             omp_set_num_threads(n_threads);
+            // note: OpenMP wants int i, not std::size_t i.
             #pragma omp parallel for
-            for (std::size_t i = 0; i < out.size(); i++) {
+            for (int i = 0; i < out.size(); i++) {
                 const std::string& text_i = texts[i];
                 double& out_i = out[i];
                 lpmf(text_i, out_i);
