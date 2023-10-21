@@ -2,6 +2,8 @@
 
 You can fit and evaluate a character ngram model. Evaluation of
 log probability mass function has been parallelised with OpenMP.
+Observed counts of ngrams are stored into an unordered_map of
+unordered_map objects --- no matrices involved.
 
 ```c++
 #include <iostream>
