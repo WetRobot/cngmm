@@ -10,7 +10,7 @@ unordered_map objects --- no matrices involved.
 #include <string>
 #include <tuple>
 #include <vector>
-#include "./include/ngm/ngm.hpp"
+#include "./include/ngmm/ngmm.hpp"
 int main() {
     ngram::NgramModel M(3, 1.0, 1.0, true);
     // fit model
@@ -35,8 +35,8 @@ This project is header-only and you can simply include it as a subdir of your
 own project.
 
 ```c++
-// assuming you have the project dir of "ngm" as a subdir of your own project
-#include "./ngm/include/ngm/ngm.hpp"
+// assuming you have the project dir of "ngmm" as a subdir of your own project
+#include "./ngmm/include/ngmm/ngmm.hpp"
 ```
 
 # Running unit tests

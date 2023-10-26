@@ -2,7 +2,7 @@
 #include <string>
 #include <tuple>
 #include <vector>
-#include "./include/ngm/ngm.hpp"
+#include "./include/ngmm/ngmm.hpp"
 // remember -fopenmp when you compile this. e.g.
 // g++ -fopenmp examples/ex_01.cpp -o examples/ex_01.o
 int main() {

@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "ngm/ngm.hpp"
+#include "ngmm/ngmm.hpp"
 
 TEST(NgramModelTests, PositiveNumbers) {
     ngram::NgramModel M(3, 1.0, 1.0, true);
