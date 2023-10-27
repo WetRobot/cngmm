@@ -5,7 +5,7 @@
 #include <iterator>
 
 namespace tngi {
-    class TextNGramIterator {
+    class CharacterNGramIterator {
     public:
         using difference_type = std::ptrdiff_t;
         using value_type = std::tuple<std::string, std::string>;
@@ -19,14 +19,14 @@ namespace tngi {
         std::size_t pos_;
 
     public:
-        TextNGramIterator(const std::string& str, std::size_t n, std::size_t pos = 0)
+        CharacterNGramIterator(const std::string& str, std::size_t n, std::size_t pos = 0)
             : str_(str), n_(n), pos_(pos) {}
 
-        bool operator!=(const TextNGramIterator& other) const {
+        bool operator!=(const CharacterNGramIterator& other) const {
             return pos_ != other.pos_;
         }
 
-        TextNGramIterator& operator++() {
+        CharacterNGramIterator& operator++() {
             ++pos_;
             return *this;
         }
@@ -35,12 +35,12 @@ namespace tngi {
             return std::make_tuple(str_.substr(pos_, n_ - 1), str_.substr(pos_ + n_ - 1, 1));
         }
 
-        TextNGramIterator begin() const {
-            return TextNGramIterator(str_, n_);
+        CharacterNGramIterator begin() const {
+            return CharacterNGramIterator(str_, n_);
         }
 
-        TextNGramIterator end() const {
-            return TextNGramIterator(str_, n_, str_.size() - n_ + 1);
+        CharacterNGramIterator end() const {
+            return CharacterNGramIterator(str_, n_, str_.size() - n_ + 1);
         }
     };
 }

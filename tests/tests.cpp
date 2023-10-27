@@ -1,8 +1,8 @@
 #include "gtest/gtest.h"
-#include "ngmm/ngmm.hpp"
+#include "cngmm/cngmm.hpp"
 
 TEST(NgramModelTests, PositiveNumbers) {
-    ngmm::NgramModel M(3, 1.0, 1.0, true);
+    cngmm::CharacterNGramMarkovModel M(3, 1.0, 1.0, true);
     M.update(std::string("<<a>"));
     M.update(std::string("<<b>"));
     std::vector<double> lp(10);

@@ -5,15 +5,15 @@
 #include <string>
 #include "./mm/include/mm/mm.hpp"
 
-namespace ngmm {
-    #include "./text_ngram_iterator.hpp"
+namespace cngmm {
+    #include "./character_ngram_iterator.hpp"
     namespace mm = mm;
 
-    class NgramModel : public mm::MarkovModel<std::string> {
+    class CharacterNGramMarkovModel : public mm::MarkovModel<std::string> {
     protected:
         int n;
     public:
-        NgramModel(
+        CharacterNGramMarkovModel(
             int n = 3,
             double alpha = 1.0,
             double unseen_alpha = 1.0,
@@ -31,7 +31,7 @@ namespace ngmm {
         void update(
             const std::string& text
         ) {
-            tngi::TextNGramIterator it(
+            tngi::CharacterNGramIterator it(
                 text,
                 n,
                 0
@@ -45,7 +45,7 @@ namespace ngmm {
             const std::string& text,
             double out
         ) {
-            tngi::TextNGramIterator it(
+            tngi::CharacterNGramIterator it(
                 text,
                 n,
                 0
@@ -55,7 +55,7 @@ namespace ngmm {
         double lpmf(
             const std::string& text
         ) {
-            tngi::TextNGramIterator it(
+            tngi::CharacterNGramIterator it(
                 text,
                 n,
                 0
@@ -65,7 +65,7 @@ namespace ngmm {
         std::vector<double> lpmf(
             const std::vector<std::string>& texts
         ) {
-            tngi::TextNGramIterator it(
+            tngi::CharacterNGramIterator it(
                 text,
                 n,
                 0
