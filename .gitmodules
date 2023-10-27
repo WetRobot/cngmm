@@ -1,0 +1,3 @@
+[submodule "include/ngmm/mm"]
+	path = include/ngmm/mm
+	url = git@github.com:WetRobot/mm.git

@@ -1,6 +1,6 @@
 # What's this for?
 
-You can fit and evaluate a character ngram model. Evaluation of
+You can fit and evaluate a character ngmm model. Evaluation of
 log probability mass function has been parallelised with OpenMP.
 Observed counts of ngrams are stored into an unordered_map of
 unordered_map objects --- no matrices involved.
@@ -12,7 +12,7 @@ unordered_map objects --- no matrices involved.
 #include <vector>
 #include "./include/ngmm/ngmm.hpp"
 int main() {
-    ngram::NgramModel M(3, 1.0, 1.0, true);
+    ngmm::NgramModel M(3, 1.0, 1.0, true);
     // fit model
     M.update(std::string("<<a>"));
     M.update(std::string("<<b>"));
@@ -24,7 +24,7 @@ int main() {
     }
     // use two threads
     M.lpmf(x, lp, 2);
-    ngram::print::print(lp);
+    ngmm::print::print(lp);
     return(0);
 }
 ```

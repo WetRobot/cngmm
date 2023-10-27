@@ -6,7 +6,7 @@
 // remember -fopenmp when you compile this. e.g.
 // g++ -fopenmp examples/ex_01.cpp -o examples/ex_01.o
 int main() {
-    ngram::NgramModel M(3, 1.0, 1.0, true);
+    ngmm::NgramModel M(3, 1.0, 1.0, true);
     M.update(std::string("<<a>"));
     M.update(std::string("<<b>"));
     M.print();
@@ -16,6 +16,6 @@ int main() {
         x[i] = "<<aaaaaaaa>";
     }
     M.lpmf(x, lp, 2);
-    ngram::print::print(lp);
+    ngmm::print::print(lp);
     return(0);
 }
